@@ -1,0 +1,36 @@
+/* Estilos generales del contenedor */
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para la entrada de búsqueda */
+#search {
+    border: 2px solid #0056b3; /* Color de borde más destacado */
+}
+
+#search:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 86, 179, 0.25); /* Resaltado con color */
+}
+
+/* Hover styles para las opciones de autocompletado (debe ser añadido a través de jQuery UI) */
+.ui-menu-item-wrapper {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.ui-menu-item-wrapper:hover {
+    background-color: orangered !important; /* Color de hover para opciones */
+    color: white !important;
+}
+
+/* Estilos para la información seleccionada */
+#selected-info {
+    background-color: #f8f9fa;
+    color: #333;
+    font-size: 1rem;
+    border-left: 5px solid orangered; /* Borde izquierdo para destacar */
+}

@@ -1,0 +1,104 @@
+
+<body class="bg-gray-100">
+<!-- Top Navigation Bar -->
+<div class="bg-white shadow-md p-4 flex justify-between items-center sticky top-0 z-50">
+  <span class="font-semibold text-lg">DevTeam</span>
+  <div class="flex items-center space-x-4">
+      <a href="#" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-envelope"></i>
+      </a>
+      <a href="#" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-bell"></i>
+      </a>
+      <div class="flex items-center space-x-2">
+          <a (click)="confirmLogout()" class="cursor-pointer text-gray-500 hover:text-gray-700">
+              <i class="fas fa-sign-out-alt"></i>
+          </a>
+      </div>
+  </div>
+</div>
+<div class="flex flex-col md:flex-row h-screen pt-16 md:pt-0">
+  <!-- Sidebar for Desktop -->
+   <div id="sidebar" class="w-64 bg-white shadow-md h-full overflow-y-auto">
+    <div class="p-5 flex justify-center">
+        <img src="https://portal.upds.edu.bo/capacitacion/assets/images/isologo-azul-upds.png" alt="Logo UPDS" class="h-15">
+    </div>
+    <ul class="mt-4">
+        <a routerLink="/admin/dashboard" class="block py-2.5 px-4 rounded transition ease-in-out duration-300 hover:bg-blue-500 hover:text-white hover:shadow-xl transform hover:-translate-y-1 no-underline">
+            <i class="fas fa-tachometer-alt text-gray-600 pr-2"></i> Dashboard
+        </a>
+        <a routerLink="/admin/mostrar-docente" class="block py-2.5 px-4 rounded transition ease-in-out duration-300 hover:bg-blue-500 hover:text-white hover:shadow-xl transform hover:-translate-y-1 no-underline">
+            <i class="fas fa-users text-gray-600 pr-2"></i> Docentes
+        </a>
+        <a routerLink="/admin/mostrar-laboratorio" class="block py-2.5 px-4 rounded transition ease-in-out duration-300 hover:bg-blue-500 hover:text-white hover:shadow-xl transform hover:-translate-y-1 no-underline">
+            <i class="fas fa-desktop text-gray-600 pr-2"></i> Laboratorios
+        </a>
+        <a routerLink="/admin/mostrar-materia" class="block py-2.5 px-4 rounded transition ease-in-out duration-300 hover:bg-blue-500 hover:text-white hover:shadow-xl transform hover:-translate-y-1 no-underline">
+            <i class="fas fa-book text-gray-600 pr-2"></i> Materias
+        </a>
+        <a routerLink="/admin/mostrar-asignacion" class="block py-2.5 px-4 rounded transition ease-in-out duration-300 hover:bg-blue-500 hover:text-white hover:shadow-xl transform hover:-translate-y-1 no-underline">
+            <i class="fas fa-tasks text-gray-600 pr-2"></i> Asignaciones
+        </a>
+    </ul>
+</div>
+ <!-- Mobile Navigation Bar -->
+<div id="mobile-nav" class="flex justify-around items-center bg-white shadow-md fixed bottom-0 left-0 right-0 z-50">
+  <a routerLink="/admin/dashboard" class="text-center flex flex-col items-center justify-center w-full py-2 group no-underline">
+      <i class="fas fa-tachometer-alt fa-lg text-purple-500 group-hover:text-purple-700"></i>
+      <div class="text-xs mt-1">Dashboard</div>
+  </a>
+  <a routerLink="/admin/mostrar-docente" class="text-center flex flex-col items-center justify-center w-full py-2 group no-underline">
+      <i class="fas fa-users fa-lg text-green-500 group-hover:text-green-700"></i>
+      <div class="text-xs mt-1">Docentes</div>
+  </a>
+  <a routerLink="/admin/mostrar-laboratorio" class="text-center flex flex-col items-center justify-center w-full py-2 group no-underline">
+      <i class="fas fa-desktop fa-lg text-blue-500 group-hover:text-blue-700"></i>
+      <div class="text-xs mt-1">Laboratorios</div>
+  </a>
+  <a routerLink="/admin/mostrar-materia" class="text-center flex flex-col items-center justify-center w-full py-2 group no-underline">
+      <i class="fas fa-book fa-lg text-red-500 group-hover:text-red-700"></i>
+      <div class="text-xs mt-1">Materias</div>
+  </a>
+  <a routerLink="/admin/mostrar-asignacion" class="text-center flex flex-col items-center justify-center w-full py-2 group no-underline">
+      <i class="fas fa-tasks fa-lg text-yellow-500 group-hover:text-yellow-700"></i>
+      <div class="text-xs mt-1">Asignaciones</div>
+  </a>
+</div>
+
+
+
+       <!-- Main Content -->
+      <div class="flex-1 p-10">
+        <router-outlet></router-outlet>
+
+<div class="mb-4" *ngIf="showDashboardContent">
+  <select [(ngModel)]="selectedTurno" (ngModelChange)="applyFilter()" class="form-select border border-gray-300 rounded-md px-4 py-2 text-sm">
+    <option value="">Todos los turnos</option>
+    <option value="Mañana">Mañana</option>
+    <option value="Medio día">Medio día</option>
+    <option value="Tarde">Tarde</option>
+    <option value="Noche">Noche</option>
+  </select>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6" *ngIf="showDashboardContent">
+
+  <!-- Card for Asignaciones -->
+  <ng-container *ngFor="let asignacion of filteredAsignaciones">
+    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+      <div class="flex items-center justify-between mb-4">
+        <div class="text-lg font-semibold text-gray-800">{{ asignacion.laboratorio?.nombre }}</div>
+        <div class="h-4 w-4 rounded-full" [ngClass]="{'bg-green-500': asignacion.laboratorio?.estado === 'disponible', 'bg-red-500': asignacion.laboratorio?.estado === 'ocupado'}"></div>
+      </div>
+      <div class="text-sm text-gray-600">
+        <p><strong>Materia:</strong> {{ asignacion.materia?.nombre }}</p>
+        <p><strong>Docente:</strong> {{ asignacion.usuario?.Nombre }} {{ asignacion.usuario?.Apellido }}</p>
+        <p><strong>Horario:</strong> {{ asignacion.horario?.turno }} ({{ asignacion.horario?.horaInicio }} - {{ asignacion.horario?.horaFin }})</p>
+      </div>
+      <img *ngIf="asignacion.laboratorio?.img_url" [src]="asignacion.laboratorio?.img_url" alt="Lab Image" class="w-full h-40 object-cover rounded-lg mt-4">
+    </div>
+  </ng-container>
+</div>
+      </div>
+  </div>
+</body>

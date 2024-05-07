@@ -1,0 +1,33 @@
+
+  /* Asegurar que el contenedor sea siempre del tamaño correcto */
+  .container {
+    max-width: 100%;
+    overflow-x: hidden; /* Prevenir desbordamiento horizontal inesperado */
+  }
+
+  /* Ajustes para dispositivos móviles */
+  @media (max-width: 640px) {
+    .form-input, .btn {
+      width: 100%; /* Hacer que los inputs y botones ocupen todo el ancho disponible */
+      margin-bottom: 0.5rem; /* Agregar un pequeño espacio entre elementos */
+    }
+
+    .form-input {
+      order: -1; /* Posicionar el campo de búsqueda antes de los botones en móviles */
+    }
+  }
+
+  /* Ajustes para tabletas */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .form-input {
+      width: calc(100% - 10rem); /* Ajustar el ancho del input de búsqueda restándole el espacio de los botones */
+    }
+  }
+
+  /* Ajustes para escritorios y pantallas grandes */
+  @media (min-width: 1025px) {
+    .form-input {
+      width: auto; /* Permitir que el campo de búsqueda se ajuste naturalmente al contenido */
+    }
+  }
+

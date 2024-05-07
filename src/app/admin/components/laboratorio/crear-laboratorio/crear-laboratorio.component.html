@@ -1,0 +1,32 @@
+<div class="container mx-auto p-6 bg-white shadow-md rounded-lg">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Crear Laboratorio</h2>
+    <form [formGroup]="laboratorioForm" (ngSubmit)="onSubmit()" class="space-y-6">
+      <div>
+        <label for="nombre" class="block text-sm font-semibold text-gray-700">Nombre del laboratorio</label>
+        <input type="text" id="nombre" formControlName="nombre" placeholder="Ingresa el nombre del laboratorio" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder:text-sm">
+        <div *ngIf="laboratorioForm.get('nombre')?.errors && laboratorioForm.get('nombre')?.touched" class="text-red-600 text-sm mt-1">
+          El nombre es requerido.
+        </div>
+      </div>
+      <div>
+        <label for="capacidad" class="block text-sm font-semibold text-gray-700">Capacidad</label>
+        <input type="number" id="capacidad" formControlName="capacidad" placeholder="Capacidad máxima de ocupantes" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder:text-sm">
+      </div>
+      <div>
+        <label for="estado" class="block text-sm font-semibold text-gray-700">Estado</label>
+        <select id="estado" formControlName="estado" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+          <option value="disponible">Disponible</option>
+          <option value="ocupado">Ocupado</option>
+          <option value="mantenimiento">Mantenimiento</option>
+        </select>
+      </div>
+      <div>
+        <label for="img_url" class="block text-sm font-semibold text-gray-700">URL de la imagen</label>
+        <input type="text" id="img_url" formControlName="img_url" placeholder="URL de la imagen del laboratorio" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder:text-sm">
+      </div>
+      <div class="flex justify-end space-x-4">
+        <button type="button" (click)="navigateBack()" class="py-2 px-4 text-sm font-medium text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300">Cancelar</button>
+        <button type="submit" [disabled]="!laboratorioForm.valid" class="py-2 px-4 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Crear Laboratorio</button>
+      </div>
+    </form>
+</div>

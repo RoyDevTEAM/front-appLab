@@ -1,0 +1,50 @@
+<div class="container mx-auto p-4">
+    <div class="flex justify-between items-center mb-4">
+        <div class="flex-grow">
+            <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="applyFilter()" placeholder="Buscar por nombre de docente, materia o laboratorio..." class="form-input border border-gray-300 px-3 py-2 rounded-md text-sm shadow-sm">
+            <div class="inline-block relative">
+                <select [(ngModel)]="selectedTurno" (ngModelChange)="applyFilter()" class="form-select border border-gray-300 rounded-md px-4 py-2 text-sm">
+                    <option value="">Todos los turnos</option>
+                    <option value="Mañana">Mañana</option>
+                    <option value="Medio día">Medio día</option>
+                    <option value="Tarde">Tarde</option>
+                    <option value="Noche">Noche</option>
+                </select>
+            </div>
+            <button class="ml-2 btn btn-outline-primary text-gray-500 hover:text-blue-500"><i class="fas fa-file-excel"></i></button>
+            <button class="ml-2 btn btn-outline-danger text-gray-500 hover:text-red-500"><i class="fas fa-file-pdf"></i></button>
+            <button class="ml-2 btn btn-outline-info text-gray-500 hover:text-blue-300"><i class="fas fa-print"></i></button>
+        </div>
+        <button (click)="navegarACrearAsignacion()" class="btn btn-success text-white hover:bg-green-600"><i class="fas fa-plus"></i> Agregar Asignación</button>
+    </div>
+    <div class="overflow-x-auto">
+        <table class="min-w-full text-sm text-left text-gray-700">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-200">
+                <tr>
+                    <th class="px-4 py-3">Docente</th>
+                    <th class="px-4 py-3">Materia</th>
+                    <th class="px-4 py-3">Horario</th>
+                    <th class="px-4 py-3">Laboratorio</th>
+                    <th class="px-4 py-3">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-300">
+                <tr *ngFor="let asignacion of filteredAsignaciones">
+                    <td class="px-4 py-3">{{ asignacion.usuario?.Nombre }} {{ asignacion.usuario?.Apellido }}</td>
+                    <td class="px-4 py-3">{{ asignacion.materia?.nombre }}</td>
+                    <td class="px-4 py-3">{{ asignacion.horario?.turno }} ({{ asignacion.horario?.horaInicio }} - {{ asignacion.horario?.horaFin }})</td>
+                    <td class="px-4 py-3">{{ asignacion.laboratorio?.nombre }}</td>
+                    <td class="px-4 py-3">
+                        <button class="text-blue-500 hover:text-blue-800" (click)="editarAsignacion(asignacion.id)"><i class="fas fa-edit"></i></button>
+                        <button class="text-red-500 hover:text-red-800 ml-2" (click)="eliminarAsignacion(asignacion.id)"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Simple Pagination -->
+    <div class="pagination flex justify-center mt-4">
+        <button class="btn bg-white border border-gray-300 text-gray-800 hover:bg-gray-100 px-4 py-2 mr-2" (click)="page = page - 1" [disabled]="page <= 1">Anterior</button>
+        <button class="btn bg-white border border-gray-300 text-gray-800 hover:bg-gray-100 px-4 py-2" (click)="page = page + 1" [disabled]="page * pageSize >= totalItems">Siguiente</button>
+    </div>
+</div>

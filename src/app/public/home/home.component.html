@@ -1,0 +1,323 @@
+<nav class="bg-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex">
+                <div class="-ml-2 mr-2 flex items-center md:hidden">
+                    <button (click)="toggleMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#">
+                        <img class="block lg:hidden h-8 w-auto" src="https://virtual.upds.edu.bo/pluginfile.php/1/theme_alpha/customlogo/1710165466/logo-upds.png" alt="UPDS">
+                        <img class="hidden lg:block h-8 w-auto" src="https://virtual.upds.edu.bo/pluginfile.php/1/theme_alpha/customlogo/1710165466/logo-upds.png" alt="UPDS">
+                    </a>
+                </div>
+            </div>
+            <div [class.hidden]="!isMenuOpen" class="md:flex md:items-center md:ml-6">
+                <a routerLink="/auth" class="text-gray-800 hover:text-blue-500 px-3 py-2 rounded-md text-sm font-medium button-3d" href="#">
+                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Hero Section -->
+<div class="relative w-full h-screen bg-cover bg-center" style="background-image: url('https://www.campusmvp.es/recursos/image.axd?picture=/2018/3T/desarrolladores.jpg');">
+    <!-- Overlay to improve text contrast -->
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+    <!-- Container for content -->
+    <div class="container mx-auto px-6 md:px-12 relative z-10 flex items-center py-32 xl:py-40">
+        <div class="w-full flex flex-col items-center relative z-10">
+            <h1 class="font-extrabold text-5xl text-center text-white leading-tight mt-4">
+                Bienvenido al Sistema de Asignación de Laboratorios
+            </h1>
+            <h2 class="font-semibold text-xl text-center text-white mt-2">
+                Síguenos en nuestras redes sociales:
+            </h2>
+            <div class="flex mt-6">
+                <a href="#" class="animate-bounce mx-2">
+                    <i class="fab fa-facebook-f text-white text-2xl hover:text-blue-700"></i>
+                </a>
+                <a href="#" class="animate-bounce mx-2">
+                    <i class="fab fa-twitter text-white text-2xl hover:text-blue-500"></i>
+                </a>
+                <a href="#" class="animate-bounce mx-2">
+                    <i class="fab fa-instagram text-white text-2xl hover:text-pink-500"></i>
+                </a>
+                <a href="#" class="animate-bounce mx-2">
+                    <i class="fab fa-linkedin text-white text-2xl hover:text-blue-600"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Section About Us -->
+<section id="about" class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap items-center">
+            <div class="w-full md:w-1/2">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Acerca de Nosotros</h2>
+                <p class="text-gray-600">Este sistema fue desarrollado por el equipo de desarrollo DevTeam para la Facultad de Ingeniería de la UPDS. Bajo la supervisión del docente Jaime Zambrana, el proyecto fue liderado por el estudiante Roider Millares y otros 6 estudiantes de apoyo. Nuestro objetivo es agilizar la asignación de laboratorios de cómputo y reserva de laboratorios por parte de los docentes, facilitando así el proceso educativo y académico en la universidad.</p>
+            </div>
+            <div class="w-full md:w-1/2 mt-6 md:mt-0">
+                <img src="https://virtual.upds.edu.bo/img/intro_upds.jpg" alt="Imagen de Acerca de Nosotros" class="rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Mission, Vision, History -->
+<section id="mission-vision-history" class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- History -->
+            <div class="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 p-6">
+                <h2 class="text-xl font-semibold mb-2">Nuestra Historia</h2>
+                <p class="text-gray-600">DevTeam UPDS fue creado por estudiantes de la UPDS con el objetivo de fortalecer las habilidades de los estudiantes y aplicar nuestros conocimientos en proyectos reales. Con una pasión compartida por la tecnología, hemos construido una comunidad comprometida con la innovación y el aprendizaje continuo.</p>
+            </div>
+            <!-- Mission -->
+            <div class="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 p-6">
+                <h2 class="text-xl font-semibold mb-2">Misión</h2>
+                <p class="text-gray-600">Nuestra misión es brindar un ambiente de colaboración donde los estudiantes puedan desarrollar sus habilidades técnicas, trabajar en proyectos desafiantes y prepararse para enfrentar los desafíos del mundo real en el campo de la tecnología.</p>
+            </div>
+            <!-- Vision -->
+            <div class="bg-white rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 p-6">
+                <h2 class="text-xl font-semibold mb-2">Visión</h2>
+                <p class="text-gray-600">Nuestra visión es convertirnos en un referente en el ámbito universitario, promoviendo la innovación, el emprendimiento y el desarrollo de soluciones tecnológicas que impacten positivamente en nuestra comunidad y en la sociedad en general.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="team" class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-center text-3xl font-bold text-gray-800 mb-8">Nuestro Equipo</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-cover bg-center h-56 p-4" style="background-image: url('https://css2.rtve.es/css/rtve.2022.deportes/mundial-futbol-catar-TE_SM7ALFL/estrellas/i/jugadores/messi.png');">
+                </div>
+                <div class="p-4">
+                    <h4 class="font-bold text-xl mb-2">Jaime Zambrana</h4>
+                    <p class="text-gray-800">Docente Encargado</p>
+                    <p class="text-gray-600">Experto en Desarrollo Web</p>
+                    <div class="flex justify-center mt-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-500 mr-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-400 mr-2">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-cover bg-center h-56 p-4" style="background-image: url('https://css2.rtve.es/css/rtve.2022.deportes/mundial-futbol-catar-TE_SM7ALFL/estrellas/i/jugadores/messi.png');">
+                </div>
+                <div class="p-4">
+                    <h4 class="font-bold text-xl mb-2">Jaime Zambrana</h4>
+                    <p class="text-gray-800">Docente Encargado</p>
+                    <p class="text-gray-600">Experto en Desarrollo Web</p>
+                    <div class="flex justify-center mt-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-500 mr-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-400 mr-2">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div> <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-cover bg-center h-56 p-4" style="background-image: url('https://css2.rtve.es/css/rtve.2022.deportes/mundial-futbol-catar-TE_SM7ALFL/estrellas/i/jugadores/messi.png');">
+                </div>
+                <div class="p-4">
+                    <h4 class="font-bold text-xl mb-2">Jaime Zambrana</h4>
+                    <p class="text-gray-800">Docente Encargado</p>
+                    <p class="text-gray-600">Experto en Desarrollo Web</p>
+                    <div class="flex justify-center mt-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-500 mr-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-400 mr-2">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div> <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-cover bg-center h-56 p-4" style="background-image: url('https://css2.rtve.es/css/rtve.2022.deportes/mundial-futbol-catar-TE_SM7ALFL/estrellas/i/jugadores/messi.png');">
+                </div>
+                <div class="p-4">
+                    <h4 class="font-bold text-xl mb-2">Jaime Zambrana</h4>
+                    <p class="text-gray-800">Docente Encargado</p>
+                    <p class="text-gray-600">Experto en Desarrollo Web</p>
+                    <div class="flex justify-center mt-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-500 mr-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-400 mr-2">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div> <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-cover bg-center h-56 p-4" style="background-image: url('https://css2.rtve.es/css/rtve.2022.deportes/mundial-futbol-catar-TE_SM7ALFL/estrellas/i/jugadores/messi.png');">
+                </div>
+                <div class="p-4">
+                    <h4 class="font-bold text-xl mb-2">Jaime Zambrana</h4>
+                    <p class="text-gray-800">Docente Encargado</p>
+                    <p class="text-gray-600">Experto en Desarrollo Web</p>
+                    <div class="flex justify-center mt-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-500 mr-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-400 mr-2">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div> <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-cover bg-center h-56 p-4" style="background-image: url('https://css2.rtve.es/css/rtve.2022.deportes/mundial-futbol-catar-TE_SM7ALFL/estrellas/i/jugadores/messi.png');">
+                </div>
+                <div class="p-4">
+                    <h4 class="font-bold text-xl mb-2">Jaime Zambrana</h4>
+                    <p class="text-gray-800">Docente Encargado</p>
+                    <p class="text-gray-600">Experto en Desarrollo Web</p>
+                    <div class="flex justify-center mt-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-500 mr-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-400 mr-2">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div> <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-cover bg-center h-56 p-4" style="background-image: url('https://css2.rtve.es/css/rtve.2022.deportes/mundial-futbol-catar-TE_SM7ALFL/estrellas/i/jugadores/messi.png');">
+                </div>
+                <div class="p-4">
+                    <h4 class="font-bold text-xl mb-2">Jaime Zambrana</h4>
+                    <p class="text-gray-800">Docente Encargado</p>
+                    <p class="text-gray-600">Experto en Desarrollo Web</p>
+                    <div class="flex justify-center mt-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-500 mr-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-400 mr-2">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div> <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-cover bg-center h-56 p-4" style="background-image: url('https://css2.rtve.es/css/rtve.2022.deportes/mundial-futbol-catar-TE_SM7ALFL/estrellas/i/jugadores/messi.png');">
+                </div>
+                <div class="p-4">
+                    <h4 class="font-bold text-xl mb-2">Jaime Zambrana</h4>
+                    <p class="text-gray-800">Docente Encargado</p>
+                    <p class="text-gray-600">Experto en Desarrollo Web</p>
+                    <div class="flex justify-center mt-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-500 mr-2">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-400 mr-2">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Repetir bloque para otros miembros -->
+        </div>
+    </div>
+</section>
+<section id="testimonials" class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-center text-3xl font-bold text-gray-800 mb-8">Testimonios de Docentes</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500">
+                <div class="p-4 text-gray-600">
+                    <p>"El sistema de asignación de laboratorios ha sido una herramienta invaluable para organizar mis clases y asignar recursos de manera eficiente. ¡Excelente trabajo, equipo DevTeam!"</p>
+                </div>
+                <div class="flex items-center p-4">
+                    <img src="https://css2.rtve.es/css/rtve.2022.deportes/mundial-futbol-catar-TE_SM7ALFL/estrellas/i/jugadores/messi.png" alt="Profesor Juan Pérez" class="h-16 w-16 rounded-full mr-4 object-cover">
+                    <div>
+                        <h5 class="font-bold text-lg">Ing. Alvaro Moscoso</h5>
+                        <p class="text-sm text-gray-500">Facultad de Ingeniería</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Repetir bloques para otros testimonios -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500">
+                <div class="p-4 text-gray-600">
+                    <p>"Gracias al sistema de DevTeam, ahora puedo reservar laboratorios de manera rápida y sencilla. ¡Me ha facilitado mucho la planificación de mis clases!"</p>
+                </div>
+                <div class="flex items-center p-4">
+                    <img src="https://css2.rtve.es/css/rtve.2022.deportes/mundial-futbol-catar-TE_SM7ALFL/estrellas/i/jugadores/messi.png" alt="Profesora María González" class="h-16 w-16 rounded-full mr-4 object-cover">
+                    <div>
+                        <h5 class="font-bold text-lg">Ing. David Serrudo</h5>
+                        <p class="text-sm text-gray-500">Facultad de Ingeniería</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-500">
+                <div class="p-4 text-gray-600">
+                    <p>"El sistema de DevTeam ha mejorado significativamente la administración de los recursos en nuestra facultad. ¡Estoy muy impresionado con su funcionalidad y facilidad de uso!"</p>
+                </div>
+                <div class="flex items-center p-4">
+                    <img src="https://css2.rtve.es/css/rtve.2022.deportes/mundial-futbol-catar-TE_SM7ALFL/estrellas/i/jugadores/messi.png" alt="Profesora Ana Rodríguez" class="h-16 w-16 rounded-full mr-4 object-cover">
+                    <div>
+                        <h5 class="font-bold text-lg">Profesora Ana Rodríguez</h5>
+                        <p class="text-sm text-gray-500">Departamento de Sistemas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="bg-gray-800 text-white py-4">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <h5 class="text-xl font-bold">Sistema de Asignación de Laboratorios</h5>
+                <p>Una solución innovadora para la gestión eficiente de laboratorios en la Facultad de Ingeniería de la UPDS.</p>
+                <p>Dirección: Av. 6 de Agosto #123, La Paz, Bolivia</p>
+            </div>
+            <div class="text-right md:text-left">
+                <h5 class="text-xl font-bold">Conéctate con nosotros</h5>
+                <div class="flex justify-end md:justify-start space-x-4 mt-3">
+                    <a href="#" class="text-white hover:text-blue-500"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white hover:text-pink-600"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white hover:text-blue-600"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4 border-gray-600">
+        <p class="text-center text-sm">&copy; 2024 Sistema de Asignación de Laboratorios - UPDS. Todos los derechos reservados.</p>
+    </div>
+</footer>
