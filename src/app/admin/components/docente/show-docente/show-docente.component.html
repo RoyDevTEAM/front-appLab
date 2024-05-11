@@ -1,12 +1,25 @@
 <div class="container mx-auto p-4">
     <div class="flex justify-between items-center mb-4">
-        <div class="flex-grow">
+        <div class="flex-grow flex items-center">
             <input type="text" [(ngModel)]="filter" (ngModelChange)="applyFilter()" placeholder="Buscar docente..." class="form-input border border-gray-300 px-3 py-2 rounded-md text-sm shadow-sm">
-            <button class="ml-2 btn btn-outline-primary"><i class="fas fa-file-excel"></i></button>
-            <button class="ml-2 btn btn-outline-danger"><i class="fas fa-file-pdf"></i></button>
-            <button class="ml-2 btn btn-outline-info"><i class="fas fa-print"></i></button>
+            <div class="relative">
+                <button class="ml-2 btn btn-outline-primary" (click)="exportDropdown = !exportDropdown">
+                    Exportar
+                </button>
+                <div *ngIf="exportDropdown" class="absolute right-0 mt-2 py-2 w-40 bg-white rounded-md shadow-md z-10">
+                    <button class="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left" (click)="exportToExcel()">
+                        Exportar a Excel
+                    </button>
+                    <button class="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left" (click)="exportToPDF()">
+                        Exportar a PDF
+                    </button>
+                    <button class="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left" (click)="print()">
+                        Imprimir
+                    </button>
+                </div>
+            </div>
         </div>
-        <button (click)="navegarACrearDocente()" class="btn btn-success"><i class="fas fa-plus"></i> Agregar Docente</button>
+        <button (click)="navegarACrearDocente()" class="btn btn-success"><i class="fas fa-plus"></i> Agregar</button>
     </div>
     <div class="overflow-x-auto">
         <table class="min-w-full text-sm text-left text-gray-700">

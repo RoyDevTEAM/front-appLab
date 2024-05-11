@@ -104,7 +104,9 @@ export class CrearAsignacionComponent implements OnInit, AfterViewInit {
         idUsuario: this.asignacionForm.get('docente')?.value,
         idMateria: this.asignacionForm.get('materia')?.value,
         idLaboratorio: this.asignacionForm.get('laboratorio')?.value,
-        idHorario: this.asignacionForm.get('horario')?.value
+        idHorario: this.asignacionForm.get('horario')?.value,
+        fechaCreacion: new Date() // Asigna la fecha actual al momento de crear la asignación
+
       };
   
       // Llamar al servicio para agregar la asignación

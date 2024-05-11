@@ -14,4 +14,5 @@ export interface AsignacionMaterias {
     materia?: Materia;
     laboratorio?: Laboratorio;
     horario?: Horario;
+    fechaCreacion?: Date; // Nuevo campo para almacenar la fecha de creación
 }

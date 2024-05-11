@@ -1,12 +1,25 @@
 <div class="container mx-auto p-4">
     <div class="flex flex-col md:flex-row justify-between items-center mb-4">
-        <div class="flex flex-wrap items-center mb-4 md:mb-0 md:flex-grow">
+        <div class="flex flex-wrap items-center mb-2 md:mb-0 md:flex-grow">
             <input type="text" [(ngModel)]="filter" (ngModelChange)="applyFilter()" placeholder="Buscar materia..." class="form-input border border-gray-300 px-3 py-2 rounded-md text-sm shadow-sm w-full md:w-auto">
-            <button class="ml-2 btn btn-outline-primary text-gray-500 hover:text-blue-500"><i class="fas fa-file-excel"></i></button>
-            <button class="ml-2 btn btn-outline-danger text-gray-500 hover:text-red-500"><i class="fas fa-file-pdf"></i></button>
-            <button class="ml-2 btn btn-outline-info text-gray-500 hover:text-blue-300"><i class="fas fa-print"></i></button>
+            <div class="relative ml-2">
+                <button class="btn btn-outline-primary text-gray-500 hover:text-blue-500" (click)="exportDropdown = !exportDropdown">
+                    Exportar
+                </button>
+                <div *ngIf="exportDropdown" class="absolute right-0 mt-2 py-2 w-40 bg-white rounded-md shadow-md z-10">
+                    <button class="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left" (click)="exportToExcel()">
+                        Exportar a Excel
+                    </button>
+                    <button class="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left" (click)="exportToPDF()">
+                        Exportar a PDF
+                    </button>
+                    <button class="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left" (click)="print()">
+                        Imprimir
+                    </button>
+                </div>
+            </div>
         </div>
-        <button (click)="navegarACrearMateria()" class="btn btn-success text-white hover:bg-green-600"><i class="fas fa-plus"></i> Agregar Materia</button>
+        <button (click)="navegarACrearMateria()" class="btn btn-success text-white hover:bg-green-600 mb-2 md:mb-0"><i class="fas fa-plus"></i> Agregar</button>
     </div>
     <div class="overflow-x-auto">
         <table class="min-w-full text-sm text-left text-gray-700">

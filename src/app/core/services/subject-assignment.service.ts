@@ -67,6 +67,27 @@ export class SubjectAssignmentService {
       ))
     );
   }
+// Método para obtener el nombre del mes a partir de una fecha
+getMonthName(date: any): string {
+  if (!date) return ''; // Devuelve vacío si no hay fecha
+
+  // Convierte el objeto Timestamp a Date si es necesario
+  const fecha = date.toDate ? date.toDate() : date;
+
+  // Verifica si la fecha es una instancia de Date
+  if (!(fecha instanceof Date)) {
+    return ''; // Devuelve vacío si la fecha no es válida
+  }
+
+  // Obtén el índice del mes a partir de la fecha
+  const monthIndex = fecha.getMonth();
+  
+  // Array con los nombres de los meses
+  const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+  // Devuelve el nombre del mes correspondiente al índice
+  return months[monthIndex];
+}
 
   eliminarAsignacionMateria(id: string): Promise<void> {
     return this.asignacionesMateriasCollection.doc(id).delete();
