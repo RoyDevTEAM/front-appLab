@@ -2,6 +2,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
+                <!-- Menu Hamburger -->
                 <div class="-ml-2 mr-2 flex items-center md:hidden">
                     <button (click)="toggleMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
                         <span class="sr-only">Open main menu</span>
@@ -10,6 +11,8 @@
                         </svg>
                     </button>
                 </div>
+
+                <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="#">
                         <img class="block lg:hidden h-8 w-auto" src="https://virtual.upds.edu.bo/pluginfile.php/1/theme_alpha/customlogo/1710165466/logo-upds.png" alt="UPDS">
@@ -17,14 +20,27 @@
                     </a>
                 </div>
             </div>
-            <div [class.hidden]="!isMenuOpen" class="md:flex md:items-center md:ml-6">
+
+            <!-- Botón Iniciar Sesión para escritorio -->
+            <div class="hidden md:flex items-center md:ml-6">
                 <a routerLink="/auth" class="text-gray-800 hover:text-blue-500 px-3 py-2 rounded-md text-sm font-medium button-3d" href="#">
                     <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
                 </a>
             </div>
         </div>
     </div>
+
+    <!-- Menú desplegable en móvil -->
+    <div [class.hidden]="!isMenuOpen" class="md:hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <!-- Botón Iniciar Sesión para móvil -->
+            <a routerLink="/auth" class="text-gray-800 hover:text-blue-500 block px-3 py-2 rounded-md text-base font-medium" href="#">
+                <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+            </a>
+        </div>
+    </div>
 </nav>
+
 <!-- Hero Section -->
 <div class="relative w-full h-screen bg-cover bg-center" style="background-image: url('https://www.campusmvp.es/recursos/image.axd?picture=/2018/3T/desarrolladores.jpg');">
     <!-- Overlay to improve text contrast -->

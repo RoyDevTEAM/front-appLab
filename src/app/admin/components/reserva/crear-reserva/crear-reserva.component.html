@@ -1,0 +1,51 @@
+<div class="container mx-auto p-6 bg-white shadow-lg rounded-lg">
+    <h2 class="text-2xl font-semibold mb-6 text-gray-800">Crear Reserva</h2>
+    <form [formGroup]="reservaForm" (ngSubmit)="onSubmit()" class="space-y-6">
+        <!-- Campo de selección de docente -->
+        <div>
+            <label for="docente" class="block text-sm font-semibold text-gray-700">Docente</label>
+            <select id="docente" formControlName="docente" class="form-select mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                <option value="" disabled [selected]="true">Seleccione un docente...</option>
+                <option *ngFor="let usuario of usuarios" [value]="usuario.id">{{ usuario.Nombre }} {{ usuario.Apellido }}</option>
+            </select>
+        </div>
+
+        <!-- Selección de hora de inicio -->
+        <div>
+            <label for="horaInicio" class="block text-sm font-semibold text-gray-700">Hora de Inicio</label>
+            <input type="time" id="horaInicio" formControlName="horaInicio" class="form-input mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+        </div>
+
+        <!-- Selección de hora de fin -->
+        <div>
+            <label for="horaFin" class="block text-sm font-semibold text-gray-700">Hora de Fin</label>
+            <input type="time" id="horaFin" formControlName="horaFin" class="form-input mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+        </div>
+
+        <!-- Selección de fecha -->
+        <div>
+            <label for="fecha" class="block text-sm font-semibold text-gray-700">Fecha</label>
+            <input type="date" id="fecha" formControlName="fecha" class="form-input mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+        </div>
+
+        <!-- Botón para verificar laboratorios -->
+        <div class="mt-4">
+            <button type="button" (click)="verificarLaboratorios()" class="py-2 px-4 text-sm font-medium text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300">Verificar Laboratorios</button>
+        </div>
+
+        <!-- Selección de laboratorio -->
+        <div>
+            <label for="laboratorio" class="block text-sm font-semibold text-gray-700">Laboratorio</label>
+            <select id="laboratorio" formControlName="laboratorio" class="form-select mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" [disabled]="!laboratorios.length">
+                <option value="" disabled [selected]="true">Seleccione un laboratorio...</option>
+                <option *ngFor="let laboratorio of laboratorios" [value]="laboratorio.id">{{ laboratorio.nombre }}</option>
+            </select>
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="flex justify-end space-x-4">
+            <button type="button" (click)="cancelar()" class="py-2 px-4 text-sm font-medium text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300">Cancelar</button>
+            <button type="submit" [disabled]="!reservaForm.valid" class="py-2 px-4 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Crear Reserva</button>
+        </div>
+    </form>
+</div>

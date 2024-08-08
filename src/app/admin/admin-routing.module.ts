@@ -15,6 +15,9 @@ import { ShowLaboratorioComponent } from './components/laboratorio/show-laborato
 import { CrearMateriaComponent } from './components/materia/crear-materia/crear-materia.component';
 import { EditarMateriaComponent } from './components/materia/editar-materia/editar-materia.component';
 import { ShowMateriaComponent } from './components/materia/show-materia/show-materia.component';
+import { CrearReservaComponent } from './components/reserva/crear-reserva/crear-reserva.component'; // Nueva importación
+import { EditarReservaComponent } from './components/reserva/editar-reserva/editar-reserva.component'; // Nueva importación
+import { ShowReservaComponent } from './components/reserva/show-reserva/show-reserva.component'; // Nueva importación
 
 const routes: Routes = [
   {
@@ -35,6 +38,10 @@ const routes: Routes = [
       { path: 'crear-materia', component: CrearMateriaComponent },
       { path: 'editar-materia/:id', component: EditarMateriaComponent },
       { path: 'mostrar-materia', component: ShowMateriaComponent },
+      // Rutas para la gestión de reservas
+      { path: 'crear-reserva', component: CrearReservaComponent },
+      { path: 'editar-reserva/:id', component: EditarReservaComponent },
+      { path: 'mostrar-reserva', component: ShowReservaComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   }

@@ -13,12 +13,20 @@
     #sidebar {
         display: none;
     }
+    .flex-1 {
+        margin-left: 0;
+        padding: 4px;
+    }
 }
+
 @media (min-width: 769px) {
     #mobile-nav {
         display: none;
     }
     #sidebar {
         display: block;
+    }
+    .flex-1 {
+        margin-left: 16rem;
     }
 }

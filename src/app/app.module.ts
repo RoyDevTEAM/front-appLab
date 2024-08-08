@@ -30,6 +30,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ShowReservaComponent } from './admin/components/reserva/show-reserva/show-reserva.component';
 import { DetalleReservaComponent } from './admin/components/reserva/detalle-reserva/detalle-reserva.component';
 import { EditarReservaComponent } from './admin/components/reserva/editar-reserva/editar-reserva.component';
+import { CrearReservaComponent } from './admin/components/reserva/crear-reserva/crear-reserva.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { EditarReservaComponent } from './admin/components/reserva/editar-reserv
     ShowReservaComponent,
     DetalleReservaComponent,
     EditarReservaComponent,
+    CrearReservaComponent,
   ],
   imports: [
     BrowserModule,

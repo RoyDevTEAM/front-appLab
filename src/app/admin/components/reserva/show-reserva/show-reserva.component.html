@@ -1,1 +1,67 @@
-<p>show-reserva works!</p>
+<div class="container mx-auto p-4">
+    <div class="flex justify-between items-center mb-4">
+        <div class="flex-grow flex items-center">
+            <input type="text" [(ngModel)]="filter" (ngModelChange)="applyFilter()" placeholder="Buscar reserva..." class="form-input border border-gray-300 px-3 py-2 rounded-md text-sm shadow-sm">
+            <div class="relative">
+                <button class="ml-2 btn btn-outline-primary" (click)="exportDropdown = !exportDropdown">
+                    Exportar
+                </button>
+                <div *ngIf="exportDropdown" class="absolute right-0 mt-2 py-2 w-40 bg-white rounded-md shadow-md z-10">
+                    <button class="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left" (click)="exportToExcel()">
+                        Exportar a Excel
+                    </button>
+                    <button class="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left" (click)="exportToPDF()">
+                        Exportar a PDF
+                    </button>
+                    <button class="block px-4 py-2 text-gray-700 hover:bg-gray-100 w-full text-left" (click)="print()">
+                        Imprimir
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button (click)="navegarACrearReserva()" class="btn btn-success"><i class="fas fa-plus"></i> Agregar</button>
+    </div>
+    <div class="overflow-x-auto">
+        <table class="min-w-full text-sm text-left text-gray-700">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-200">
+                <tr>
+                    <th class="px-4 py-3">Usuario</th>
+                    <th class="px-4 py-3">Laboratorio</th>
+                    <th class="px-4 py-3">Fecha</th>
+                    <th class="px-4 py-3">Hora Inicio</th>
+                    <th class="px-4 py-3">Hora Fin</th>
+                    <th class="px-4 py-3">Estado</th>
+                    <th class="px-4 py-3">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-300">
+                <tr *ngFor="let reserva of filteredReservas | slice:(page-1) * pageSize : page * pageSize">
+                    <td class="px-4 py-3">{{ reserva.usuario?.Nombre }}</td>
+                    <td class="px-4 py-3">{{ reserva.laboratorio?.nombre }}</td>
+                    <td class="px-4 py-3">{{ reserva.fecha | date: 'dd/MM/yyy' }}</td>
+                    <td class="px-4 py-3">{{ reserva.horaInicio  }}</td>
+                    <td class="px-4 py-3">{{ reserva.horaFin }}</td>
+                    <td class="px-4 py-3">
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full"
+                            [class.bg-red-100]="reserva.estado === 'pendiente'"
+                            [class.bg-green-100]="reserva.estado === 'confirmada'"
+                            [class.bg-blue-100]="reserva.estado === 'completada'"
+                            [class.text-red-800]="reserva.estado === 'pendiente'"
+                            [class.text-green-800]="reserva.estado === 'confirmada'"
+                            [class.text-blue-800]="reserva.estado === 'completada'">
+                            {{ reserva.estado }}
+                        </span>
+                    </td>
+                    <td class="px-4 py-3">
+                        <button (click)="confirmarReserva(reserva.id)" class="text-blue-500 hover:text-blue-600"><i class="fas fa-check"></i> Confirmar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Simple Pagination -->
+    <div class="pagination flex justify-center mt-4">
+        <button class="btn bg-white border border-gray-300 text-gray-800 hover:bg-gray-100 px-4 py-2 mr-2" (click)="page = page - 1" [disabled]="page <= 1">Anterior</button>
+        <button class="btn bg-white border border-gray-300 text-gray-800 hover:bg-gray-100 px-4 py-2" (click)="page = page + 1" [disabled]="page * pageSize >= totalItems">Siguiente</button>
+    </div>
+</div>
